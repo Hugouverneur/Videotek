@@ -1,0 +1,26 @@
+#search_zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#search_results {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#search_bar {
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    background-color: white;
+    outline: none;
+    transition: ease 0.2s;
+}
+
+#search_bar:focus {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);
+}

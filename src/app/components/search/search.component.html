@@ -1,0 +1,15 @@
+<section>
+
+    <div id="search_zone">
+        <div>
+            <h2>Trouvez rapidement un film</h2>
+            <input type="text" id="search_bar" (keyup)="onTypeSearch($event)">
+        </div>
+    </div>
+
+    <div id="search_results">
+        <app-film-card *ngFor="let searchFilm of searchFilms; let i = index"
+            videotekFilmIndex={{i}}
+            tmdbFilmId={{searchFilm.id}}></app-film-card>
+    </div>
+</section>

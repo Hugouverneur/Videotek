@@ -1,0 +1,34 @@
+<main>
+
+    <h1>Découvrir</h1>
+
+    <app-search></app-search>
+    
+    <section id="trendings_sec">
+        <h2>Tendances</h2>
+        <div class="horizontal_scrolling">
+            <app-film-card *ngFor="let dayTrendingFilm of dayTrendings; let i = index"
+            videotekFilmIndex={{i}}
+            tmdbFilmId={{dayTrendingFilm.id}}></app-film-card>
+        </div>
+    </section>
+
+    <section id="popularity_sec">
+        <h2>Les grands classiques</h2>
+        <div class="horizontal_scrolling">
+            <app-film-card *ngFor="let bestVotesFilm of bestVotes; let i = index"
+            videotekFilmIndex={{i}}
+            tmdbFilmId={{bestVotesFilm.id}}></app-film-card>
+        </div>
+    </section>
+
+    <section id="last_release_sec">
+        <h2>Les dernières sorties</h2>
+        <div class="horizontal_scrolling">
+            <app-film-card *ngFor="let lastRelease of lastReleases; let i = index"
+            videotekFilmIndex={{i}}
+            tmdbFilmId={{lastRelease.id}}></app-film-card>
+        </div>
+    </section>
+
+</main>

@@ -1,0 +1,10 @@
+<a routerLink="add">Ajouter un film</a>
+
+
+<section class="my_videotek_section">
+    <h1>Ma vidéotek</h1>
+    <div class="videotek_list">
+        <app-film-card *ngFor="let videotekFilm of allMyVideotekFilms"
+            tmdbFilmId={{videotekFilm.tmdbId}}></app-film-card>
+    </div>
+</section>

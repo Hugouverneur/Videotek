@@ -1,0 +1,24 @@
+<main>
+    <section id="main_info_sec" style="background: url(https://www.themoviedb.org/t/p/w1280/{{tmdbFilm?.backdrop_path}});">
+        <div class="content_bloc">
+
+            <div class="left_zone">
+                <img class="poster_bloc" src="https://www.themoviedb.org/t/p/w300/{{ tmdbFilm?.poster_path }}" alt="{{ tmdbFilm?.title }}">
+            </div>
+
+            <div class="righ_zone">
+                <h1>
+                    {{ tmdbFilm?.title }}
+                    <span class="release_date">({{ tmdbFilm?.release_date.slice(0, 4) }})</span>
+                </h1>
+                <p>{{ tmdbFilm?.overview }}</p>
+            </div>
+
+        </div>
+        
+        
+
+        
+        
+    </section>
+</main>

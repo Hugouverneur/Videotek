@@ -1,0 +1,52 @@
+.film_card {
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+    margin: 10px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.poster {
+    width: 200px;
+    height: auto;
+    border-radius: 12px;
+    transition: ease 0.2s;
+}
+
+.poster:hover {
+    transform: scale(1.05);
+}
+
+.el_on_img {
+    position: absolute;
+    top: 85%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.circle_btn {
+    margin: 10px;
+    padding: 5px 9px;
+    border: none;
+    border-radius: 15px;
+    background-color: #D5DEDD;
+    color: black;
+    transition: ease 0.1s;
+}
+
+.delete_btn:hover {
+    transform: scale(1.1);
+    background-color: #ED6045;
+    color: white;
+    cursor: pointer;
+}
+
+.add_btn:hover {
+    transform: scale(1.1);
+    background-color: #83ed45;
+    color: white;
+    cursor: pointer;
+}

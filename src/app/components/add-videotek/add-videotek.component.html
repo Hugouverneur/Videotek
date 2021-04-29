@@ -1,0 +1,24 @@
+<main>
+    <section id="form_section">
+    
+        <div class="box_form">
+            <h1>Connexion :</h1>
+            <div class="form_zone">
+    
+                <form [formGroup]="addVideotekFilmForm" (ngSubmit)="onSubmit()">
+                    <label for="title">
+                        Titre du film :
+                        <input type="text" id="title" (keyup)="autocomplete($event)" value="{{ getTitleFromSelection }}">
+                        <select id="tmdbId" formControlName="tmdbId" (change)="onSelectFilm($event)">
+                            <option *ngFor="let suggestion of tmdbSuggestions.results" value="{{suggestion.id}}">{{ suggestion.title }} ({{suggestion.release_date}})</option>
+                        </select>
+                    </label>
+
+                    <button type="submit" [disabled]="addVideotekFilmForm.invalid">Valider</button>
+                </form>
+
+            </div>
+        </div>
+    
+    </section>
+</main>

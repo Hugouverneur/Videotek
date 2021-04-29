@@ -1,0 +1,27 @@
+<main>
+    <section id="connexion_section">
+    
+        <div class="box_connexion">
+            <h1>Connexion :</h1>
+            <div class="form_zone">
+    
+                <form [formGroup]="connexionForm" (ngSubmit)="onSubmit()">
+                    <label for="email">
+                        E-mail :
+                        <input type="text" id="email" formControlName="email">
+                    </label>
+                    <label for="password">
+                        Mot-de-passe :
+                        <input type="password" id="password" formControlName="password">
+                    </label>
+
+                    <button type="submit" [disabled]="connexionForm.invalid">Se connecter</button>
+                </form>
+
+                <p class="error_message">{{ errorMessage }}</p>
+                
+            </div>
+        </div>
+    
+    </section>
+</main>

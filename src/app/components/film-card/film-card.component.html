@@ -1,0 +1,12 @@
+<div class="film_card">
+    <a class="img_bloc" routerLink="/single-film/{{ tmdbFilm.id }}">
+        <img class="poster" src="https://www.themoviedb.org/t/p/w200/{{ tmdbFilm?.poster_path }}" alt="{{ tmdbFilm?.title }}">
+    </a>
+    <div class="el_on_img">
+        <button class="circle_btn add_btn" *ngIf="!isWatchListExists(tmdbFilm?.id)" (click)="onCreateWatchlistFilm(tmdbFilm?.id)">👀</button>
+        <button class="circle_btn delete_btn" *ngIf="isWatchListExists(tmdbFilm?.id)" (click)="onDeleteWatchlistFilm(tmdbFilm?.id)">👀✘</button>
+        <button class="circle_btn add_btn" *ngIf="!isVideotekExists(tmdbFilm?.id)" (click)="onAddVideotekFilm(tmdbFilm?.id)">💿</button>
+        <button class="circle_btn delete_btn" *ngIf="isVideotekExists(tmdbFilm?.id)" (click)="onDeleteVideotekFilm(tmdbFilm?.id)">💿✘</button>
+    </div>
+    
+</div>

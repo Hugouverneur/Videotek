@@ -1,0 +1,17 @@
+h1 {
+    margin: 2vw;
+}
+
+section h2 {
+    margin-left: 2vw;
+}
+
+.horizontal_scrolling {
+    height: 350px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
