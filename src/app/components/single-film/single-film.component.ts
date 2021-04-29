@@ -12,12 +12,10 @@ import { WatchlistService } from 'src/app/services/watchlist.service';
   templateUrl: './single-film.component.html',
   styleUrls: ['./single-film.component.css']
 })
-export class SingleFilmComponent implements OnInit, OnDestroy {
+export class SingleFilmComponent implements OnInit {
 
   tmdbId = this.activatedRoute.snapshot.params['tmdbId']
   tmdbFilm: any;
-  allMyWatchListSubscription: Subscription;
-  allMyWatchList: WatchListFilm[] = [];
   
 
   constructor(private videotekService: VideotekService,
@@ -27,8 +25,7 @@ export class SingleFilmComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getTmdbData();
-    this.getAllWatchList();
-    this.getSingleFilmWatchlist(this.tmdbId);
+
   }
 
   getTmdbData() {
@@ -36,34 +33,6 @@ export class SingleFilmComponent implements OnInit, OnDestroy {
     .subscribe((data: any) => {
       this.tmdbFilm = data;
     });
-  }
-
-  // Récupération de tous les films de la watchlist
-  getAllWatchList() {
-    this.allMyWatchListSubscription = this.watchlistService.allMyWatchlistSubject.subscribe(
-      (watchList: WatchListFilm[]) => {
-        this.allMyWatchList = watchList;
-      }
-    );
-    console.log(this.allMyWatchList);
-    this.watchlistService.getWatchList();
-    this.watchlistService.emitWatchList();
-    
-  }
-
-  getSingleFilmWatchlist(tmdbId: number) {
-    const watchListFilm = this.allMyWatchList.find(
-      (el) => {
-        if(el.tmdbId === tmdbId) {          
-          return true;
-        }
-      }
-    );
-  }
-
-  ngOnDestroy(): void {
-    this.allMyWatchListSubscription.unsubscribe();
-    
   }
 
 }

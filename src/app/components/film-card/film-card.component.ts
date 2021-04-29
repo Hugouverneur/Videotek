@@ -4,6 +4,7 @@ import { WatchListFilm } from 'src/app/models/watchlist-film.model';
 import { TmdbService } from 'src/app/services/tmdb.service';
 import { VideotekService } from 'src/app/services/videotek.service';
 import { WatchlistService } from 'src/app/services/watchlist.service';
+import firebase from 'firebase';
 
 @Component({
   selector: 'app-film-card',
@@ -14,6 +15,7 @@ export class FilmCardComponent implements OnInit {
 
   tmdbFilm: any = [];
   videotekFilm: VideotekFilm;
+  userUid = firebase.auth().currentUser.uid;
   
   @Input() tmdbFilmId: number;
   @Input() videotekFilmIndex: number;
@@ -53,7 +55,7 @@ export class FilmCardComponent implements OnInit {
   }
 
   // Ajout et Suppression watchlist
-  onCreateWatchlistFilm(tmdbId: number) {
+  onCreateWatchlistFilm(tmdbId: number) {    
     let date = new Date();
     let stringDate: string = date.toString();
     const watchListFilm = new WatchListFilm(tmdbId, stringDate);

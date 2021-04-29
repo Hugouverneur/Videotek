@@ -13,8 +13,6 @@ export class WatchlistService {
 
   constructor() {
     this.getWatchList();
-    console.log(this.allMyWatchlist);
-    
   }
 
   emitWatchList() {
@@ -22,12 +20,14 @@ export class WatchlistService {
   }
 
   saveWatchList() {
-    firebase.database().ref('/watchList').set(this.allMyWatchlist);
+    const userUid = firebase.auth().currentUser.uid; // Récupère le uid du l'utilisateur
+    firebase.database().ref(`${userUid}/watchList`).set(this.allMyWatchlist);
   }
 
   // Récupère tous les films de la watchlist
   getWatchList() {
-    firebase.database().ref('/watchList').on('value', (data) => {
+    const userUid = firebase.auth().currentUser.uid; // Récupère le uid du l'utilisateur
+    firebase.database().ref(`${userUid}/watchList`).on('value', (data) => {
       this.allMyWatchlist = data.val() ? data.val() : [];
       this.emitWatchList();
     });
@@ -37,7 +37,7 @@ export class WatchlistService {
   getSingleFilmWatchlist(tmdbId: number) {
     const watchListFilm = this.allMyWatchlist.find(
       (el) => {
-        if(el.tmdbId === tmdbId) {          
+        if(el.tmdbId === tmdbId) {
           return true;
         }
       }

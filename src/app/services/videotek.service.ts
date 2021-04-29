@@ -21,11 +21,13 @@ export class VideotekService {
 
   // Sauvegarde l'array local dans la base de donnée
   saveVideotekFilms() {
-    firebase.database().ref('/videotek/videotek-films').set(this.allMyVideotekFilms);
+    const userUid = firebase.auth().currentUser.uid; // Récupère le uid du l'utilisateur
+    firebase.database().ref(`${userUid}/videotek`).set(this.allMyVideotekFilms);
   }
 
   getVideotekFilms() {
-    firebase.database().ref('/videotek/videotek-films').on('value', (data) => {
+    const userUid = firebase.auth().currentUser.uid; // Récupère le uid du l'utilisateur
+    firebase.database().ref(`${userUid}/videotek`).on('value', (data) => {
       this.allMyVideotekFilms = data.val() ? data.val() : [];
       this.emitVideotekFilms();
     });
@@ -34,7 +36,8 @@ export class VideotekService {
   getSingleVideotekFilm(id: number) {
     return new Promise(
       (resolve, reject) => {
-        firebase.database().ref('/videotek/videotek-films/' + id).once('value').then(
+        const userUid = firebase.auth().currentUser.uid; // Récupère le uid du l'utilisateur
+        firebase.database().ref(`${userUid}/videotek/${id}`).once('value').then(
           (data) => {
             resolve(data.val());
           }, (error) => {

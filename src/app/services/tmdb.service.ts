@@ -28,7 +28,6 @@ export class TmdbService {
     let month = (currentDate.getMonth() < 10)? '0' + currentDate.getMonth() : currentDate.getMonth();
     let day = (currentDate.getDate() < 10)? '0' + currentDate.getDate() : currentDate.getDate();
     currentDate = currentDate.getFullYear() + '-' + month + '-' + day;
-    console.log(currentDate);
     
     return this.httpClient.get(`${this.baseUrl}/discover/movie?api_key=${this.apiKey}&language=fr-FR&sort_by=primary_release_date.desc&release_date.lte=${currentDate}&include_adult=false&include_video=false&page=1`);
   }
