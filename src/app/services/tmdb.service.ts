@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +25,7 @@ export class TmdbService {
   }
 
   getLastRelease() {
-    let currentDate: any = new Date();
-    let month = (currentDate.getMonth() < 10)? '0' + currentDate.getMonth() : currentDate.getMonth();
-    let day = (currentDate.getDate() < 10)? '0' + currentDate.getDate() : currentDate.getDate();
-    currentDate = currentDate.getFullYear() + '-' + month + '-' + day;
+    let currentDate: string = moment().format('YYYY-MM-DD');
     
     return this.httpClient.get(`${this.baseUrl}/discover/movie?api_key=${this.apiKey}&language=fr-FR&sort_by=primary_release_date.desc&release_date.lte=${currentDate}&include_adult=false&include_video=false&page=1`);
   }

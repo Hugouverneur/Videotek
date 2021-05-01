@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HeaderComponent implements OnInit {
 
   isAuth: boolean;
-  userUid: string;
+  userEmail: string;
 
   constructor(private authService: AuthService) { }
 
@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
       (user) => {
         if(user) {
           this.isAuth = true;
-          this.userUid = user.uid
+          this.userEmail = user.email;
         } else {
           this.isAuth = false;
         }

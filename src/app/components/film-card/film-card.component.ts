@@ -5,6 +5,7 @@ import { TmdbService } from 'src/app/services/tmdb.service';
 import { VideotekService } from 'src/app/services/videotek.service';
 import { WatchlistService } from 'src/app/services/watchlist.service';
 import firebase from 'firebase';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-film-card',
@@ -55,10 +56,11 @@ export class FilmCardComponent implements OnInit {
   }
 
   // Ajout et Suppression watchlist
-  onCreateWatchlistFilm(tmdbId: number) {    
-    let date = new Date();
-    let stringDate: string = date.toString();
-    const watchListFilm = new WatchListFilm(tmdbId, stringDate);
+  onCreateWatchlistFilm(tmdbId: number) {
+    // Utilisation de la lib moment pour la date
+    moment.locale('fr');
+    let date = moment().format('DD/MM/YYYY h:mm:ss');
+    const watchListFilm = new WatchListFilm(tmdbId, date);
     
     this.watchListService.createWatchListFilm(watchListFilm);
   }
