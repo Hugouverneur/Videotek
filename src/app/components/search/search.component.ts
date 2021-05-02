@@ -9,6 +9,7 @@ import { TmdbService } from 'src/app/services/tmdb.service';
 export class SearchComponent implements OnInit {
 
   searchFilms: any = [];
+  isSearching: boolean = false; // True si l'utilisateur saisie du texte dans le champs
 
   constructor(private tmdbService: TmdbService) { }
 
@@ -28,6 +29,7 @@ export class SearchComponent implements OnInit {
   onTypeSearch(event: any) {
     let getSearch: string = event.target.value;
     if(getSearch.length > 2) {
+      this.isSearching = true;
       this.search(getSearch);
     }
   }

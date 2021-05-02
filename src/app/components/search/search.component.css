@@ -6,9 +6,11 @@
 }
 
 #search_results {
+    height: 325px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    margin: 20px;
 }
 
 #search_bar {

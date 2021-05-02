@@ -1,3 +1,12 @@
+.my_videotek_section {
+    padding: 0px 2vw;
+}
+
+.page_title {
+    margin: 50px 20px;
+    font-size: 2em;
+}
+
 .videotek_list {
     display: flex;
     flex-flow: row wrap;

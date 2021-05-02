@@ -32,21 +32,21 @@
     padding: 5px 9px;
     border: none;
     border-radius: 15px;
-    background-color: #D5DEDD;
-    color: black;
+    background-color: #E3E1D5;
+    color: #4c4637;
     transition: ease 0.1s;
 }
 
 .delete_btn:hover {
     transform: scale(1.1);
     background-color: #ED6045;
-    color: white;
+    color: #4c4637;
     cursor: pointer;
 }
 
 .add_btn:hover {
     transform: scale(1.1);
-    background-color: #83ed45;
-    color: white;
+    background-color: #f8d216;
+    color: #4c4637;
     cursor: pointer;
 }

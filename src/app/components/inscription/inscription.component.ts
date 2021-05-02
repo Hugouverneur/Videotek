@@ -34,7 +34,7 @@ export class InscriptionComponent implements OnInit {
 
     this.authService.createNewUser(email, password).then(
       () => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/discover']);
       },
       (error) => {
         this.errorMessage = error;

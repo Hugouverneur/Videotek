@@ -35,16 +35,18 @@ export class WatchlistService {
 
   // Récupères les données de watchlist d'un film
   getSingleFilmWatchlist(tmdbId: number) {
-    const watchListFilm = this.allMyWatchlist.find(
-      (el) => {
-        if(el.tmdbId === tmdbId) {
-          return true;
-        }
+    return new Promise(
+      (resolve, reject) => {
+        const userUid = firebase.auth().currentUser.uid; // Récupère le uid du l'utilisateur
+        firebase.database().ref(`${userUid}/watchList`).orderByChild('tmdbId').equalTo(tmdbId).once('value').then(
+          (data) => {
+            resolve(data.val());
+          }, (error) => {
+            reject(error);
+          }
+        );
       }
     );
-    console.log(watchListFilm);
-    
-    return watchListFilm;
   }
 
   // Ajoute le film dans la watchlist

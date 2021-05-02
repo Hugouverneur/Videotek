@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <div id="search_results">
+    <div id="search_results" *ngIf="isSearching">
         <app-film-card *ngFor="let searchFilm of searchFilms; let i = index"
             videotekFilmIndex={{i}}
             tmdbFilmId={{searchFilm.id}}></app-film-card>

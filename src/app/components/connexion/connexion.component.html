@@ -6,14 +6,8 @@
             <div class="form_zone">
     
                 <form [formGroup]="connexionForm" (ngSubmit)="onSubmit()">
-                    <label for="email">
-                        E-mail :
-                        <input type="text" id="email" formControlName="email">
-                    </label>
-                    <label for="password">
-                        Mot-de-passe :
-                        <input type="password" id="password" formControlName="password">
-                    </label>
+                    <input type="text" id="email" formControlName="email" placeholder="E-mail">
+                    <input type="password" id="password" formControlName="password" placeholder="Mot-de-passe">
 
                     <button type="submit" [disabled]="connexionForm.invalid">Se connecter</button>
                 </form>

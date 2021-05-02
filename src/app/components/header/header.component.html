@@ -2,14 +2,14 @@
     <nav>
 
         <div class="left_elements">
-            <a routerLink="home">Home</a>
+            <a>🎬</a>
             <a routerLink="discover">Découvrir</a>
             <a routerLink="my-videotek">Ma Vidéotek</a>
             <a routerLink="my-watchlist">Ma Watchlist</a>
         </div>
         
         <div class="right_elements">
-            {{userEmail}}
+            <a>{{userEmail}}</a>
             <a routerLink="connexion" *ngIf="!isAuth">Connexion</a>
             <a routerLink="inscription" *ngIf="!isAuth">Inscription</a>
             <a (click)="onSignOut()" *ngIf="isAuth" style="cursor: pointer;">Déconnexion</a>

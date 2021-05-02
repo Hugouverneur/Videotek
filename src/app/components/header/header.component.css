@@ -6,7 +6,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #02658f;
+    background-color: #F8D216;
 }
 
 .left_elements, .right_elements {
@@ -16,5 +16,11 @@ nav {
 nav a {
     margin: 20px;
     text-decoration: none;
-    color: rgb(233, 235, 255);
+    color: #1A1602;
+    transition: ease 0.2s;
+}
+
+nav a:hover {
+    color: #4C4637;
+    box-shadow: 0 12px 10px -6px rgba(0,0,0,0.05);
 }

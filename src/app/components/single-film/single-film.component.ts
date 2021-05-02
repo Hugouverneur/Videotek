@@ -16,6 +16,7 @@ export class SingleFilmComponent implements OnInit {
 
   tmdbId = this.activatedRoute.snapshot.params['tmdbId']
   tmdbFilm: any;
+  watchlistFilm: WatchListFilm;
   
 
   constructor(private videotekService: VideotekService,
@@ -25,7 +26,7 @@ export class SingleFilmComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTmdbData();
-
+    this.getWatchlistFilm(this.tmdbId);
   }
 
   getTmdbData() {
@@ -33,6 +34,16 @@ export class SingleFilmComponent implements OnInit {
     .subscribe((data: any) => {
       this.tmdbFilm = data;
     });
+  }
+
+  getWatchlistFilm(tmdbId: number) {
+    // this.watchlistService.getSingleFilmWatchlist(tmdbId).then((watchlistFilm: WatchListFilm) => {
+    //   this.watchlistFilm = watchlistFilm;
+    //   console.log(watchlistFilm);
+      
+    // });
+    console.log(this.watchlistService.getSingleFilmWatchlist(tmdbId));
+    
   }
 
 }

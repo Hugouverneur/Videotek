@@ -34,7 +34,7 @@ export class ConnexionComponent implements OnInit {
 
     this.authService.signInUser(email, password).then(
       () => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/discover']);
       },
       (error) => {
         this.errorMessage = error;

@@ -1,5 +1,6 @@
-h1 {
-    margin: 2vw;
+.page_title {
+    margin: 50px 20px;
+    font-size: 2em;
 }
 
 section h2 {
